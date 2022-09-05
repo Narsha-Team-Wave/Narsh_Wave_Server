@@ -1,0 +1,29 @@
+plugins {
+	id 'org.springframework.boot' version '2.6.6'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'com.narsha'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compileOnly 'org.projectlombok:lombok:1.18.24'
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.6.6'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.6.7'
+	implementation 'org.springframework.boot:spring-boot-starter'
+	annotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.18.24'
+	implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.29'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2'
+	runtimeOnly 'mysql:mysql-connector-java:8.0.29'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.narsha.wave.mapper.BaseDataMapper">
+
+    <!--데이터 저장 -->
+    <insert id="baseDataInput" parameterType="map">
+        INSERT INTO noepa.noepa_base_data
+        (
+        time
+        , delta
+        , theta
+        , low_alpha
+        , high_alpha
+        , low_beta
+        , high_beta
+        , low_gamma
+        , mid_gamma
+        , attention
+        , meditation
+        )
+        VALUES(
+               #{time}
+               , #{delta}
+               , #{theta}
+               , #{low_alpha}
+               , #{high_alpha}
+               , #{low_beta}
+               , #{high_beta}
+               , #{low_gamma}
+               , #{mid_gamma}
+               , #{attention}
+               , #{meditation}
+               );
+
+
+    </insert>
+
+    <select id="cursRslt" resultType="map" parameterType="map">
+        select now();
+    </select>
+
+</mapper>
