@@ -1,24 +1,32 @@
 package com.narsha.wave.controller;
 
-import com.narsha.wave.domain.entity.Data;
+import com.narsha.wave.domain.dto.request.SaveDataRequest;
+import com.narsha.wave.domain.dto.response.DataResponse;
 import com.narsha.wave.service.DataService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
+@RequestMapping("/data")
 public class DataController {
 
-//    private DataService dataService;
+    private final DataService dataService;
 
-//    @RequestMapping(value = "/data", method = RequestMethod.GET)
-//    public Optional<Data> data (
-//            @RequestBody String data
-//    ) {
-//        return dataService.dataSelect(data);
-//    }
+    @ResponseStatus(HttpStatus.CREATED)
+    @PostMapping("/")
+    public Long saveData (
+            @RequestBody SaveDataRequest request
+    ) {
+        return dataService.saveData(request);
+    }
+
+    @GetMapping("/{device-id}")
+    public DataResponse getAvgData(
+            @PathVariable("device-id") int deviceId
+    ) {
+        return dataService.AverageData(deviceId);
+    }
 
 }
