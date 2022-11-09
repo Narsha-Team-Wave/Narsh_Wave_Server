@@ -27,4 +27,6 @@ public interface DataRepository extends JpaRepository<Data, Long> {
             " FROM tb1_noepa_data WHERE device_id=? GROUP BY device_id", nativeQuery = true)
     Optional<Data> findAvgByDeviceId(int deviceId);
 
+    Optional<Data> findFirstByDeviceIdOrderBySaveTimeDesc(int deviceId);
+
 }

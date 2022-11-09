@@ -23,28 +23,24 @@ public class Data {
 
     private int deviceId;
 
-    private int attention;
     private int delta;
     private int high_alpha;
     private int high_beta;
     private int low_alpha;
     private int low_beta;
     private int low_gamma;
-    private int meditation;
     private int mid_gamma;
     private int theta;
 
     @Builder
-    public Data(int deviceId, int attention, int delta, int high_alpha, int high_beta, int low_alpha, int low_beta, int low_gamma, int meditation, int mid_gamma, int theta) {
+    public Data(int deviceId, int delta, int high_alpha, int high_beta, int low_alpha, int low_beta, int low_gamma, int mid_gamma, int theta) {
         this.deviceId = deviceId;
-        this.attention = attention;
         this.delta = delta;
         this.high_alpha = high_alpha;
         this.high_beta = high_beta;
         this.low_alpha = low_alpha;
         this.low_beta = low_beta;
         this.low_gamma = low_gamma;
-        this.meditation = meditation;
         this.mid_gamma = mid_gamma;
         this.theta = theta;
     }
